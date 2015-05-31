@@ -12,6 +12,22 @@
     <artifactId>laddafx</artifactId>
     <version>0.1.0</version>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <description>JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)</description>
+    <url>https://github.com/tobium/LaddaFX</url>
+
+    <scm>
+        <url>https://github.com/tobium/LaddaFX.git</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>com.miglayout</groupId>
@@ -24,6 +40,27 @@
             <version>5.0</version>
         </dependency>
     </dependencies>
+
+
+    <developers>
+        <developer>
+            <id>tobib</id>
+            <name>Tobias Bley</name>
+            <email>tobi@ultramixer.com</email>
+            <roles>
+                <role>Project Lead</role>
+            </roles>
+            <timezone>+1</timezone>
+            <url>http://www.ultramixer.com/</url>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-maven2</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
 
 </project>
