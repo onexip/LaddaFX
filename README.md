@@ -2,6 +2,7 @@
 JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)
 
 ![My image](https://raw.githubusercontent.com/tobium/LaddaFX/master/LaddaFX-Demo-screenshot.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JAhmbOIq0AY" frameborder="0" allowfullscreen></iframe>
 
 https://www.youtube.com/watch?v=JAhmbOIq0AY
 
