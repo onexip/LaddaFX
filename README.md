@@ -3,6 +3,8 @@ JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)
 
 YT("https://www.youtube.com/watch?v=JAhmbOIq0AY", print = TRUE)
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/JAhmbOIq0AY/0.jpg)](http://www.youtube.com/watch?v=JAhmbOIq0AY "LaddaFX Demo")
+
 
 # Usage via Code
 ```java
