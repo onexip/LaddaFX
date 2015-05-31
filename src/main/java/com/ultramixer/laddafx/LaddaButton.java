@@ -112,21 +112,6 @@ public class LaddaButton extends Button
             }
         });
 
-        this.setOnAction(new EventHandler<ActionEvent>()
-        {
-            public void handle(ActionEvent event)
-            {
-                if (isInProgress())
-                {
-                    setInProgress(false);
-                }
-                else
-                {
-                    setInProgress(true);
-                }
-            }
-        });
-
         laddaButtonStyleProperty().addListener(new ChangeListener<LaddaButtonStyle>()
         {
             public void changed(ObservableValue<? extends LaddaButtonStyle> observable, LaddaButtonStyle oldValue, LaddaButtonStyle newValue)
