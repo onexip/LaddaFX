@@ -16,11 +16,13 @@ button.setInProgress(false);
  <LaddaButton text="Submit" laddaButtonStyle="EXPAND_LEFT"></LaddaButton>
  ```
 # Maven
+```xml
 <dependency>
     <groupId>com.ultramixer</groupId>
     <artifactId>laddafx</artifactId>
     <version>0.1.0</version>
 </dependency>
+```
 
 # Copyright
 Free to use private and commercially. Please include a note to our company "UltraMixer Digital Audio Solutions / www.ultramixer.com".
