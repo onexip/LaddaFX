@@ -1,7 +1,7 @@
 # LaddaFX
 JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/JAhmbOIq0AY/0.jpg)](http://www.youtube.com/watch?v=JAhmbOIq0AY "LaddaFX Demo")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/iZOVJi-5ZVg/0.jpg)](http://www.youtube.com/watch?v=iZOVJi-5ZVg "LaddaFX 0.2.0 Demo")
 
 
 # Usage via Code
