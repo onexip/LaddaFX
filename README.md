@@ -1,7 +1,7 @@
 # LaddaFX
 JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)
 
-![My image](tobium.github.com/LaddaFX/LaddaFX-Demo-screenshot.png)
+![My image](https://raw.githubusercontent.com/tobium/LaddaFX/master/LaddaFX-Demo-screenshot.png)
 
 https://www.youtube.com/watch?v=JAhmbOIq0AY
 
