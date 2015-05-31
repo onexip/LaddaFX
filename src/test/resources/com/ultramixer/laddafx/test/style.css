@@ -1,0 +1,38 @@
+.root
+{
+    -ladda-button-red:#990000
+}
+
+.ladda-button
+{
+   -fx-background-radius: 2px;
+   -fx-background-color: -ladda-button-red;
+   -fx-font-size: 18px;
+   -fx-text-fill: white;
+   -fx-padding: 10px 25px;
+   -fx-progress-indicator-size: 24;
+}
+
+.ladda-button:hover
+{
+    -fx-background-color: derive(-ladda-button-red,50%);
+}
+
+.ladda-button .progress-indicator
+{
+    -fx-progress-color: white
+}
+
+/* Test */
+
+.logo
+{
+    -fx-font-size:34px;
+    -fx-font-weight: normal;
+}
+
+.button-description
+{
+    -fx-text-fill: #666;
+}
+

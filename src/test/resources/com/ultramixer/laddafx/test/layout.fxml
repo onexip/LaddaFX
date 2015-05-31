@@ -1,0 +1,18 @@
+<?import com.ultramixer.laddafx.LaddaButton?>
+<?import javafx.scene.control.Label?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<!--
+  ~ Copyright (c) 2015 Tobias Bley, UltraMixer Digital Audio Solutions (www.ultramixer.com)
+  -->
+
+<MigPane layout="" cols="[center,fill,grow]" rows="30![]40![][]"
+        prefWidth="640" prefHeight="480" stylesheets="@style.css">
+    <Label text="LaddaFX Demo" MigPane.cc="w pref!, spanx 2" styleClass="logo"></Label>
+
+    <Label text="expand-left" MigPane.cc="newline,grow 0" styleClass="button-description"></Label>
+    <Label text="expand-right" MigPane.cc="grow 0" styleClass="button-description"></Label>
+
+    <LaddaButton text="Submit" MigPane.cc="newline,grow 0" laddaButtonStyle="EXPAND_LEFT"></LaddaButton>
+    <LaddaButton text="Submit" MigPane.cc="grow 0" laddaButtonStyle="EXPAND_RIGHT"></LaddaButton>
+
+</MigPane>
