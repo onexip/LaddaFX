@@ -94,8 +94,15 @@ public class LaddaButton extends Button
         this.progressIndicator = new ProgressIndicator();
         progressIndicator.setMouseTransparent(true);
         progressIndicator.setPrefSize(getProgressIndicatorSize(), getProgressIndicatorSize());
-        progressIndicator.prefWidthProperty().bind(progressIndicatorSize);
-        progressIndicator.prefHeightProperty().bind(progressIndicatorSize);
+
+        progressIndicatorSize.addListener(new ChangeListener<Number>()
+        {
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue)
+            {
+                progressIndicator.setPrefWidth(newValue.doubleValue());
+                progressIndicator.setPrefHeight(newValue.doubleValue());
+            }
+        });
 
         inProgressProperty().addListener(new ChangeListener<Boolean>()
         {
@@ -135,6 +142,14 @@ public class LaddaButton extends Button
         {
             setContentDisplay(ContentDisplay.RIGHT);
         }
+        else if (style.equals(LaddaButtonStyle.EXPAND_UP))
+        {
+            setContentDisplay(ContentDisplay.TOP);
+        }
+        else if (style.equals(LaddaButtonStyle.EXPAND_DOWN))
+        {
+            setContentDisplay(ContentDisplay.BOTTOM);
+        }
     }
 
     public LaddaButtonStyle getLaddaButtonStyle()
@@ -154,45 +169,105 @@ public class LaddaButton extends Button
 
     private void showProgressStartAnimation()
     {
-        Timeline tt = new Timeline(
-                new KeyFrame(Duration.millis(1),
-                        new KeyValue(this.progressIndicator.minWidthProperty(), 0),
-                        new KeyValue(this.progressIndicator.maxWidthProperty(), 0),
-                        new KeyValue(this.graphicProperty(), progressIndicator)),
+        if (getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_LEFT) || getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_RIGHT))
+        {
+            Timeline tt = new Timeline(
+                    new KeyFrame(Duration.millis(1),
+                            new KeyValue(this.progressIndicator.minWidthProperty(), 0),
+                            new KeyValue(this.progressIndicator.maxWidthProperty(), 0),
+                            new KeyValue(this.graphicProperty(), progressIndicator)),
 
-                new KeyFrame(Duration.millis(ANIMATION_DURATION * 0.8),
-                        new KeyValue(this.progressIndicator.minWidthProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN),
-                        new KeyValue(this.progressIndicator.maxWidthProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN)
-                ),
-                new KeyFrame(Duration.millis(ANIMATION_DURATION),
-                        new KeyValue(this.progressIndicator.minWidthProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT),
-                        new KeyValue(this.progressIndicator.maxWidthProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT)
-                )
+                    new KeyFrame(Duration.millis(ANIMATION_DURATION * 0.8),
+                            new KeyValue(this.progressIndicator.minWidthProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN),
+                            new KeyValue(this.progressIndicator.maxWidthProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN)
+                    ),
+                    new KeyFrame(Duration.millis(ANIMATION_DURATION),
+                            new KeyValue(this.progressIndicator.minWidthProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT),
+                            new KeyValue(this.progressIndicator.maxWidthProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT)
+                    )
 
-        );
+            );
 
-        tt.setDelay(Duration.millis(0));
-        tt.play();
+            tt.setDelay(Duration.millis(0));
+            tt.play();
+        }
+        else if (getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_UP) || getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_DOWN))
+        {
+            Timeline tt = new Timeline(
+                    new KeyFrame(Duration.millis(1),
+                            new KeyValue(this.progressIndicator.minHeightProperty(), 0),
+                            new KeyValue(this.progressIndicator.maxHeightProperty(), 0),
+                            new KeyValue(this.progressIndicator.prefHeightProperty(), 0),
+                            new KeyValue(this.graphicProperty(), progressIndicator)),
+
+                    new KeyFrame(Duration.millis(ANIMATION_DURATION * 0.8),
+                            new KeyValue(this.progressIndicator.minHeightProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN),
+                            new KeyValue(this.progressIndicator.maxHeightProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN),
+                            new KeyValue(this.progressIndicator.prefHeightProperty(), getProgressIndicatorSize() + ANIMATION_WIDTH_OFFSET, Interpolator.EASE_IN)
+                    ),
+                    new KeyFrame(Duration.millis(ANIMATION_DURATION),
+                            new KeyValue(this.progressIndicator.minHeightProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT),
+                            new KeyValue(this.progressIndicator.maxHeightProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT),
+                            new KeyValue(this.progressIndicator.prefHeightProperty(), getProgressIndicatorSize(), Interpolator.EASE_OUT)
+                    )
+
+            );
+            tt.setDelay(Duration.millis(0));
+            tt.play();
+        }
 
     }
 
     private void showProgressStopAnimation()
     {
-        WidthShrinkTransition shrinkWidthTransition = new WidthShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.8), progressIndicator);
-        shrinkWidthTransition.setCycleCount(1);
-        shrinkWidthTransition.setInterpolator(Interpolator.EASE_IN);
+        if (getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_LEFT) || getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_RIGHT))
+        {
+            WidthShrinkTransition widthShrinkTransition = new WidthShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.8), progressIndicator);
+            widthShrinkTransition.setCycleCount(1);
+            widthShrinkTransition.setInterpolator(Interpolator.EASE_IN);
 
-        ButtonPaddingShrinkTransition buttonPaddingTransition = new ButtonPaddingShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.2), LaddaButton.this, ANIMATION_WIDTH_OFFSET, 5, 5);
-        buttonPaddingTransition.setCycleCount(2);
-        buttonPaddingTransition.setAutoReverse(true);
-        buttonPaddingTransition.setInterpolator(Interpolator.EASE_OUT);
+            ButtonPaddingLeftRightShrinkTransition buttonPaddingTransition = new ButtonPaddingLeftRightShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.2), LaddaButton.this, ANIMATION_WIDTH_OFFSET, 5, 5);
+            buttonPaddingTransition.setCycleCount(2);
+            buttonPaddingTransition.setAutoReverse(true);
+            buttonPaddingTransition.setInterpolator(Interpolator.EASE_OUT);
 
 
-        SequentialTransition st = new SequentialTransition();
-        st.getChildren().addAll(shrinkWidthTransition, buttonPaddingTransition);
+            SequentialTransition st = new SequentialTransition();
+            st.getChildren().addAll(widthShrinkTransition, buttonPaddingTransition);
+            st.setOnFinished(new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent event)
+                {
+                    setGraphic(null);
+                }
+            });
 
-        st.play();
+            st.play();
+        }
+        else if (getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_UP) || getLaddaButtonStyle().equals(LaddaButtonStyle.EXPAND_DOWN))
+        {
+            HeightShrinkTransition heightShrinkTransition = new HeightShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.8), progressIndicator);
+            heightShrinkTransition.setCycleCount(1);
+            heightShrinkTransition.setInterpolator(Interpolator.EASE_IN);
 
+            ButtonPaddingTopBottomShrinkTransition buttonPaddingTransition = new ButtonPaddingTopBottomShrinkTransition(Duration.millis(ANIMATION_DURATION * 0.2), LaddaButton.this, ANIMATION_WIDTH_OFFSET, 2, 2);
+            buttonPaddingTransition.setCycleCount(2);
+            buttonPaddingTransition.setAutoReverse(true);
+            buttonPaddingTransition.setInterpolator(Interpolator.EASE_OUT);
+
+
+            SequentialTransition st = new SequentialTransition();
+            st.getChildren().addAll(heightShrinkTransition, buttonPaddingTransition);
+            st.setOnFinished(new EventHandler<ActionEvent>()
+            {
+                public void handle(ActionEvent event)
+                {
+                    setGraphic(null);
+                }
+            });
+
+            st.play();
+        }
     }
 
     public boolean isInProgress()

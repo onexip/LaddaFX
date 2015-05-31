@@ -3,7 +3,7 @@
   -->
 
 <?import com.ultramixer.laddafx.LaddaButton?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import org.tbee.javafx.scene.layout.fxml.*?>
 <MigPane layout="" cols="[center,fill,grow]" rows="30![]40![][]"
          prefWidth="640" prefHeight="480" stylesheets="@style.css"
@@ -13,8 +13,15 @@
 
     <Label text="expand-left" MigPane.cc="newline,grow 0" styleClass="button-description"></Label>
     <Label text="expand-right" MigPane.cc="grow 0" styleClass="button-description"></Label>
+    <Label text="expand-up" MigPane.cc="grow 0" styleClass="button-description"></Label>
+    <Label text="expand-down" MigPane.cc="grow 0" styleClass="button-description"></Label>
 
-    <LaddaButton fx:id="expandLeftButton" text="Submit" MigPane.cc="newline,grow 0" laddaButtonStyle="EXPAND_LEFT"></LaddaButton>
-    <LaddaButton fx:id="expandRightButton" text="Submit" MigPane.cc="grow 0" laddaButtonStyle="EXPAND_RIGHT"></LaddaButton>
+    <LaddaButton fx:id="expandLeftButton" text="Submit" MigPane.cc="newline,grow 0, h pref!, w pref!"
+                 laddaButtonStyle="EXPAND_LEFT"></LaddaButton>
+    <LaddaButton fx:id="expandRightButton" text="Submit" MigPane.cc="grow 0, h pref!, w pref!"
+                 laddaButtonStyle="EXPAND_RIGHT"></LaddaButton>
+    <LaddaButton fx:id="expandUpButton" text="Submit" MigPane.cc="grow 0, h pref!, w pref!" laddaButtonStyle="EXPAND_UP"></LaddaButton>
+    <LaddaButton fx:id="expandDownButton" text="Submit" MigPane.cc="grow 0, h pref!, w pref!"
+                 laddaButtonStyle="EXPAND_DOWN"></LaddaButton>
 
 </MigPane>

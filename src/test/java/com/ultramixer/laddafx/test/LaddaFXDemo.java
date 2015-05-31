@@ -15,7 +15,7 @@ public class LaddaFXDemo extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        primaryStage.setTitle("LaddaFX Demo");
+        primaryStage.setTitle("LaddaFX Demo 0.2.0");
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ultramixer/laddafx/test/layout.fxml"));

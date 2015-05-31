@@ -7,5 +7,7 @@ package com.ultramixer.laddafx;
 public enum LaddaButtonStyle
 {
     EXPAND_LEFT(),
-    EXPAND_RIGHT();
+    EXPAND_RIGHT(),
+    EXPAND_UP(),
+    EXPAND_DOWN();
 }

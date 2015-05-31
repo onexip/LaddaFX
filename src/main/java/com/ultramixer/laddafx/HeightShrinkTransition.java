@@ -8,15 +8,15 @@ import javafx.animation.Transition;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
-public class WidthShrinkTransition extends Transition
+public class HeightShrinkTransition extends Transition
 {
-    private final double startWidth;
+    private final double startHeight;
     private Region node;
 
-    public WidthShrinkTransition(Duration duration, Region node)
+    public HeightShrinkTransition(Duration duration, Region node)
     {
         this.node = node;
-        this.startWidth = node.getPrefWidth();
+        this.startHeight = node.getPrefHeight();
         this.setCycleDuration(duration);
 
     }
@@ -24,9 +24,9 @@ public class WidthShrinkTransition extends Transition
     @Override
     protected void interpolate(double frac)
     {
-        double w = startWidth * (1 - frac);
-        this.node.setMinWidth(w);
-        this.node.setMaxWidth(w);
-        this.node.setPrefWidth(w);
+        double h = startHeight * (1 - frac);
+        this.node.setMinHeight(h);
+        this.node.setMaxHeight(h);
+        this.node.setPrefHeight(h);
     }
 }

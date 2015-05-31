@@ -9,14 +9,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.util.Duration;
 
-public class ButtonPaddingShrinkTransition extends Transition
+public class ButtonPaddingLeftRightShrinkTransition extends Transition
 {
     private Insets originalPadding = null;
     private double maxPaddingLeft, maxPaddingRight, minPaddingLeft, minPaddingRight;
     private Button button;
 
 
-    public ButtonPaddingShrinkTransition(Duration duration, Button button, double widthOffset, double minPaddingLeft, double minPaddingRight)
+    public ButtonPaddingLeftRightShrinkTransition(Duration duration, Button button, double widthOffset, double minPaddingLeft, double minPaddingRight)
     {
         this.button = button;
         this.minPaddingLeft = minPaddingLeft;
