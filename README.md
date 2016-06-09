@@ -1,7 +1,7 @@
 # LaddaFX
 JavaFX port of Ladda for HTML/CSS (http://lab.hakim.se/ladda/)
 
-1
+2
 
 A UI concept which merges loading indicators into the action that invoked them. Primarily intended for use with forms where it gives users immediate feedback upon submit rather than leaving them wondering while the browser does its thing.
 
